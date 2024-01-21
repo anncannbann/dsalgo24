@@ -9,8 +9,8 @@ pet = str(input('Enter your pet name'))
 
 #4. Combine the name of their city and pet and show them their band name.
 
-bandname= pet+city
+
 
 #5. Make sure the input cursor shows on a new line:
-print("\n Band name is :" + bandname)
+print("\n Band name is :" + city + " " +pet)
 # Solution: https://replit.com/@appbrewery/band-name-generator-end
