@@ -11,8 +11,8 @@ import mymodu
 Heads = 1
 Tails = 0
 
-toss = random.randint(0,2)
-
+toss = random.randint(0,1)
+print(f'toss is {toss}')
 if toss ==1:
   print('Heads')
 
