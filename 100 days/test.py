@@ -10,3 +10,7 @@ print(states[-1])
 states.append('bani')
 
 print(states)
+
+
+fruit = ['apple','peacg','pear']
+
