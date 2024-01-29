@@ -37,14 +37,23 @@ options = [rock,paper,scissors]
 # rock >scissor
 # scissor >paper > rock
 
-
+computer = random.randint(0,2)
 userchose = options[user]
-
-computerchose = options[random.randint(0,2)]
+computerchose = options[computer]
 print(f"u  chose {userchose}")
 print(f"computer chose {computerchose}")
 
-if userchose ==computerchose:
+
+
+
+if computer > user or (computer ==0 and user==2):
+        print(f'computer won')
+
+elif userchose>computerchose or (user ==0 and computer ==2):
+     print('U WON!')
+
+elif userchose ==computerchose:
     print(f"Its a draw")
 
-
+else:
+    print('Invalid Input')
