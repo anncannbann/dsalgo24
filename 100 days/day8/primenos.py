@@ -1,17 +1,23 @@
 # Write your code below this line 👇
 
 def prime_checker(n):
-  if n %2 ==0:
-    print("It's not a prime number.")
-  else:
-    for num in range(3,int((n+1)/2)):
-      if n %num ==0:
-        #print(n,num)
-        print("It's not a prime number.")
-        break
-      else:
+    is_prime = True
+
+    if n %2 ==0:
+        is_prime = False
+    else:
+        for num in range(3,int((n+1)/2)):
+            if n %num ==0:
+                #print(n,num)
+                is_prime = False
+                
+
+    if is_prime:
         print("It's a prime number.")
-        break
+    else:
+        print("It's not a prime number.")
+
+
 
 
 # Write your code above this line 👆
