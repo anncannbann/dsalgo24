@@ -25,17 +25,27 @@ def checkwinner(comp_sum,user_sum,comp):
         comp.append(deal)
         comp_sum+=deal
 
-    print(f"comp has {comp}")
+    #print(f"comp has {comp}")
     
     if comp_sum >17 and comp_sum <21:
         if comp_sum> user_sum:
-            print(f"Comp won {comp_sum}, you lose {user_sum}")
+            return f"YOU lose !!!\n your score: {user_sum},cards : {user } \n computers : {comp_sum} , cards :{comp}"
         elif user_sum > comp_sum and user_sum <21:
-            print(f"YOU WON!!!urs: {user_sum},computers : {comp_sum}")
+            return f"YOU WON!!!\n your score: {user_sum},cards : {user } \n computers : {comp_sum} , cards :{comp}"
+    if user_sum >17 and user_sum <21:
+        if comp_sum > user_sum:
+            return f"YOU WON!!!\n your score: {user_sum},cards : {user } \n computers : {comp_sum} , cards :{comp}"
+        elif user_sum > comp_sum and user_sum <21:
+            return f"YOU lose !!!\n your score: {user_sum},cards : {user } \n computers : {comp_sum} , cards :{comp}"
     if user_sum >21:
-        print(f"Comp won {comp_sum}, you lose {user_sum}")
+        return f"YOU lose !!!\n your score: {user_sum},cards : {user } \n computers : {comp_sum} , cards :{comp}"
+    elif comp_sum >21:
+        return f"YOU WON!!!\n your score: {user_sum},cards : {user } \n computers : {comp_sum} , cards :{comp}"
 
-
+    if comp_sum ==21:
+        return f"YOU lose !!!\n your score: {user_sum},cards : {user } \n computers : {comp_sum} , cards :{comp}"
+    elif user_sum ==21:
+        return f"YOU WON!!!\n your score: {user_sum},cards : {user } \n computers : {comp_sum} , cards :{comp}"
 
 def blackjack():
     comp=[]
@@ -49,42 +59,42 @@ def blackjack():
     
     comp_score,user_score = add(comp,user)
     if comp_score ==21:
-        print(f"YOU lose !!!urs: {user_score},computers : {comp_score}")
+        print(f"YOU lose !!!\n your score: {user_score},cards : {user } \n computers : {comp_score} , cards :{comp}")
     elif user_score ==21:
-        print(f"YOU WON!!!urs: {user_score},computers : {comp_score}")
+        print(f"YOU WON!!!\n your score: {user_score},cards : {user } \n computers : {comp_score} , cards :{comp}")
     
     elif user_score>21:
+        #print('Ace found')
         for card in user:
             if card ==11:
                 card =1
+                #print(card)
         add(comp,user)
         if user_score > 21:
-            print('You lose')
+            print('You lose, score greater than 21.')
             
     else:
 
-        print(f"Computer's first card :{comp}, current score {comp_score}")
+        print(f"Computer's first card :{comp[0]}")
         print(f" You have :{user}, current score {user_score}")
         choice = True
      
 
         while choice:
-            toContinue = input('Do you want to continue y for yes and n for no').lower()
+            toContinue = input('\nDo you want to continue y for yes and n for no: ').lower()
             if toContinue =='n':
                 x,y =add(comp,user)
-                checkwinner(x,y,comp)
+                print(checkwinner(x,y,comp))
                 choice = False
             else:
                 print('Dealing you a card')
                 card_dealt =deal_a_card()
                 user.append(card_dealt)
-                print(f'Your new cards {user}')
                 x,y =add(comp,user)
-
-
-            
-
-
+                print(f'Your new cards {user} , Your score is : {y}')
+                if y >21:
+                    print(checkwinner(x,y,comp))
+                    choice = False
 
             
 
