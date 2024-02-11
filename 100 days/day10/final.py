@@ -59,7 +59,7 @@ def calculator():
 
         print(f'{a}{user_op}{b}={answer} ')
 
-        cont = input('Would you like to continue? type y for yes and n for a new calculation').lower()
+        cont = input('Would you like to continue? type y for yes and n for a new calculation..').lower()
 
         if (cont =='y'):
             a = answer
