@@ -106,5 +106,3 @@ if user=="y":
 
 else:
     print('Goodbye')
-
-
