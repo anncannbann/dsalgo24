@@ -1,6 +1,9 @@
 from gamedata import data
+from art import logo,vs
 import random
+import os
 
+clear = lambda: os.system('clear')
 
 
 #generate 
@@ -16,53 +19,43 @@ def game():
     A = generate()
     B = generate()
 
-    print(A)
-          #,'description','country'])
-    #print(B['name','description','country'])
 
     count = 0
 
     loo =True
     while loo:
-
-        choice =input('Which one is greater A or B').lower()
-        print(f"A is {A}\n B is {B}")
         if A ==B:
-            print('same')
-            A =generate()
+            B = generate()
+        print(f"A is {A['name'],A['description'],A['country']}\n")
+
+        print(vs)
+
+        print(f"\nB is {B['name'],B['description'],B['country']}")
         
-        if A['follower_count'] > B['follower_count']:
-            if choice =='a':
-                count+=1
-                print(f"You're right! Current score: {count}.")
-                A= B
-                B = generate()
-            elif choice =='b':
-                print(f"Sorry, that's wrong. Final score: {count}")
-                loo =False
+        choice =input("Who has more followers? Type 'A or a' or 'B or b': ").lower()
+
+
+        
+        if A['follower_count'] > B['follower_count'] and choice =='a':
+            count+=1
+            print(f"You're right! Current score: {count}.")
+            clear()
+            A= B
+            B = generate()
     
-        elif B['follower_count'] > A['follower_count']:
-            if choice =='b':
-                count+=1
-                print(f"You're right! Current score: {count}.")
-                A = B
-                B = generate()
-            elif choice =='a':
-                print(f"Sorry, that's wrong. Final score: {count}")
+        elif B['follower_count'] > A['follower_count'] and choice =='b': 
+            count+=1
+            print(f"You're right! Current score: {count}.")
+            clear()
+            A = B
+            B = generate()
+        else:
+                print(f"\n\nSorry, that's wrong. Final score: {count}")
                 loo = False
 
 
 
 
+print(logo)
 
-
-
-#swap
-
-
-#finalscore
-
-
-
-print(generate())
-print(game())
+game()
