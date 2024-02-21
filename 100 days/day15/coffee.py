@@ -38,6 +38,16 @@ def check_resources(res):
     if resources['water'] < x['water'] or resources['milk'] < x['milk'] or resources['coffee'] < x['coffee']:
         return 'Sorry insufficient resources, please try again later.'
 
+    else:
+        return True
+
+def make_coffee(res):
+    x = MENU[res]['ingredients']
+    resources['water'] -= x['water']
+    resources['milk'] -= x['milk']
+    resources['coffee'] -= x['coffee']
+    print('Here is your coffee')
+
 
 def coins(res):
     q = int(input('Enter quarters'))
@@ -45,19 +55,19 @@ def coins(res):
     n = int(input('Enter nickle'))
     p = int(input('Enter pennies'))
     x = MENU[res]['cost']
-    change =0
+
     total = float((q*0.25)+(d*0.10)+(n * 0.05)+(p * 0.01))
     print(total)
 
     if total < x:
         return "Sorry that's not enough money. Money refunded."
     elif total > x:
-        return f"Here is ${round(total-x,2)} dollars in change.”"
+        print(make_coffee(res))
+        return f"Here is ${round(total-x,2)} dollars in change."
     else:
-        return False
+        return "No change need, exact amount given."
 
 
-def makeCoffee():
 
 
 machine = True
@@ -65,21 +75,18 @@ machine = True
 while machine:
 
     req = input('would you like a latte/espresso/cappuccino?')
-    print(check_resources(req))
-    print(coins(req))
-
-    if req == 'latte':
-        if not coins(req):
-            makeCoffee()
-        continue
-    elif req == 'espresso':
-        continue
-    elif req == 'cappuccino':
-        continue
-
-    elif req == 'report':
+    if req == 'report':
         print(resources)
-    elif req == 'off':
-        machine=False
+    else:
+
+        res = check_resources(req)
+        if res:
+            cost = coins(req)
+        else:
+            print(coins(req))
+            machine = False
+
+        if req == 'off':
+            machine=False
 
 
