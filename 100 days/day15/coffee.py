@@ -39,16 +39,25 @@ def check_resources(res):
         return 'Sorry insufficient resources, please try again later.'
 
 
-def coins():
+def coins(res):
     q = int(input('Enter quarters'))
     d = int(input('Enter dimes'))
     n = int(input('Enter nickle'))
     p = int(input('Enter pennies'))
-
-
+    x = MENU[res]['cost']
+    change =0
     total = float((q*0.25)+(d*0.10)+(n * 0.05)+(p * 0.01))
     print(total)
-    return total
+
+    if total < x:
+        return "Sorry that's not enough money. Money refunded."
+    elif total > x:
+        return f"Here is ${round(total-x,2)} dollars in change.”"
+    else:
+        return False
+
+
+def makeCoffee():
 
 
 machine = True
@@ -56,19 +65,16 @@ machine = True
 while machine:
 
     req = input('would you like a latte/espresso/cappuccino?')
+    print(check_resources(req))
+    print(coins(req))
 
     if req == 'latte':
-        print(check_resources(req))
-        coins()
+        if not coins(req):
+            makeCoffee()
         continue
     elif req == 'espresso':
-        check_resources(req)
-        coins()
         continue
     elif req == 'cappuccino':
-        check_resources(req)
-        coins()
-
         continue
 
     elif req == 'report':
