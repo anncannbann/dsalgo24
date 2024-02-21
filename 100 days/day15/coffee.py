@@ -39,6 +39,16 @@ def check_resources(res):
         return 'Sorry insufficient resources, please try again later.'
 
 
+def coins():
+    q = int(input('Enter quarters'))
+    d = int(input('Enter dimes'))
+    n = int(input('Enter nickle'))
+    p = int(input('Enter pennies'))
+
+
+    total = float((q*0.25)+(d*0.10)+(n * 0.05)+(p * 0.01))
+    print(total)
+    return total
 
 
 machine = True
@@ -49,16 +59,21 @@ while machine:
 
     if req == 'latte':
         print(check_resources(req))
+        coins()
         continue
     elif req == 'espresso':
         check_resources(req)
+        coins()
         continue
     elif req == 'cappuccino':
         check_resources(req)
+        coins()
+
         continue
 
     elif req == 'report':
         print(resources)
     elif req == 'off':
         machine=False
+
 
