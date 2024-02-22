@@ -35,7 +35,7 @@ resources = {
 
 def check_resources(res):
     x = MENU[res]['ingredients']
-    print(x)
+    #print(x)
     if resources['water'] < x['water'] or resources['milk'] < x['milk'] or resources['coffee'] < x['coffee']:
         return False
 
@@ -48,7 +48,7 @@ def make_coffee(res):
     resources['water'] -= x['water']
     resources['milk'] -= x['milk']
     resources['coffee'] -= x['coffee']
-    return 'Here is your coffee'
+    return f'Here is your {res} ☕️.'
 
 
 def coins(res):
@@ -60,7 +60,7 @@ def coins(res):
 
     total = float((q * 0.25) + (d * 0.10) + (n * 0.05) + (p * 0.01))
     change = round(total - x, 2)
-    print(f"You gave ${total}")
+    #print(f"You gave ${total}")
 
     if total < x:
         return "Sorry that's not enough money. Money refunded."
