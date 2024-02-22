@@ -89,11 +89,9 @@ while machine:
     else:
 
         res = check_resources(req)
-        # print(res)
         if res:
             cost = coins(req)
             print(cost)
         else:
             print('Sorry insufficient resources, please try again later.')
-            # print(res)
             machine = False
