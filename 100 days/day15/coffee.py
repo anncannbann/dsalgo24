@@ -26,7 +26,6 @@ MENU = {
 }
 profit = 0
 resources = {
-
     "water": 300,
     "milk": 200,
     "coffee": 100,
@@ -34,16 +33,16 @@ resources = {
 
 
 def check_resources(res):
+    """Checks if there are enough resources to make the beverage."""
     x = MENU[res]['ingredients']
-    #print(x)
     if resources['water'] < x['water'] or resources['milk'] < x['milk'] or resources['coffee'] < x['coffee']:
         return False
-
     else:
         return True
 
 
 def make_coffee(res):
+    """If enough resources and enough money provided, make coffe, reduce resources and add profit."""
     x = MENU[res]['ingredients']
     resources['water'] -= x['water']
     resources['milk'] -= x['milk']
@@ -52,6 +51,7 @@ def make_coffee(res):
 
 
 def coins(res):
+    """Check the amount of money given, if enough money provided, make coffee. otherwise return saying insufficient funds"""
     q = int(input('Enter quarters'))
     d = int(input('Enter dimes'))
     n = int(input('Enter nickle'))
@@ -60,7 +60,7 @@ def coins(res):
 
     total = float((q * 0.25) + (d * 0.10) + (n * 0.05) + (p * 0.01))
     change = round(total - x, 2)
-    #print(f"You gave ${total}")
+    # print(f"You gave ${total}")
 
     if total < x:
         return "Sorry that's not enough money. Money refunded."
@@ -81,7 +81,9 @@ while machine:
 
     req = input('would you like a latte/espresso/cappuccino?')
     if req == 'report':
-        print(resources)
+        print(f"Water: {resources['water']}ml")
+        print(f"Milk: {resources['milk']}ml")
+        print(f"Coffee: {resources['coffee']}g")
         print(f"Total profit of the day {profit}")
 
     elif req == 'off':
