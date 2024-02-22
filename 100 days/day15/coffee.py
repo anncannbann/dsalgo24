@@ -2,6 +2,7 @@ MENU = {
     "espresso": {
         "ingredients": {
             "water": 50,
+            "milk": 0,
             "coffee": 18,
         },
         "cost": 1.5,
@@ -36,7 +37,7 @@ def check_resources(res):
     x = MENU[res]['ingredients']
     print(x)
     if resources['water'] < x['water'] or resources['milk'] < x['milk'] or resources['coffee'] < x['coffee']:
-        return 'Sorry insufficient resources, please try again later.'
+        return False
 
     else:
         return True
@@ -46,7 +47,7 @@ def make_coffee(res):
     resources['water'] -= x['water']
     resources['milk'] -= x['milk']
     resources['coffee'] -= x['coffee']
-    print('Here is your coffee')
+    return 'Here is your coffee'
 
 
 def coins(res):
@@ -58,15 +59,17 @@ def coins(res):
 
     total = float((q*0.25)+(d*0.10)+(n * 0.05)+(p * 0.01))
     change = round(total-x,2)
-    print(total)
+    print(f"You gave ${total}")
 
     if total < x:
         return "Sorry that's not enough money. Money refunded."
     elif total > x:
+
         print(make_coffee(res))
         global profit
         profit += x
         return f"Here is ${change} dollars in change."
+
     else:
         return "No change need, exact amount given."
 
@@ -77,17 +80,23 @@ while machine:
     req = input('would you like a latte/espresso/cappuccino?')
     if req == 'report':
         print(resources)
-        print(profit)
+        print(f"Total profit of the day {profit}")
+
+    elif req == 'off':
+        machine = False
     else:
 
         res = check_resources(req)
+        #print(res)
         if res:
             cost = coins(req)
+            print(cost)
         else:
-            print(coins(req))
+            print('Sorry insufficient resources, please try again later.')
+            #print(res)
             machine = False
 
-        if req == 'off':
-            machine=False
+
+
 
 
