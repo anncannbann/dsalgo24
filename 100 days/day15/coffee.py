@@ -32,8 +32,8 @@ resources = {
     "coffee": 100,
 }
 
-def check_resources(res):
 
+def check_resources(res):
     x = MENU[res]['ingredients']
     print(x)
     if resources['water'] < x['water'] or resources['milk'] < x['milk'] or resources['coffee'] < x['coffee']:
@@ -41,6 +41,7 @@ def check_resources(res):
 
     else:
         return True
+
 
 def make_coffee(res):
     x = MENU[res]['ingredients']
@@ -57,8 +58,8 @@ def coins(res):
     p = int(input('Enter pennies'))
     x = MENU[res]['cost']
 
-    total = float((q*0.25)+(d*0.10)+(n * 0.05)+(p * 0.01))
-    change = round(total-x,2)
+    total = float((q * 0.25) + (d * 0.10) + (n * 0.05) + (p * 0.01))
+    change = round(total - x, 2)
     print(f"You gave ${total}")
 
     if total < x:
@@ -72,6 +73,7 @@ def coins(res):
 
     else:
         return "No change need, exact amount given."
+
 
 machine = True
 
@@ -87,16 +89,11 @@ while machine:
     else:
 
         res = check_resources(req)
-        #print(res)
+        # print(res)
         if res:
             cost = coins(req)
             print(cost)
         else:
             print('Sorry insufficient resources, please try again later.')
-            #print(res)
+            # print(res)
             machine = False
-
-
-
-
-
