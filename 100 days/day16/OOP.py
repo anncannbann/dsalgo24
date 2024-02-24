@@ -21,4 +21,5 @@ my_table = PrettyTable()
 
 my_table.add_column('Name', ['a', 'b', 'c', 'l'])
 my_table.add_column('Type', ['cute','adorable','sweet','funny'])
+my_table.align='l'
 print(my_table)
