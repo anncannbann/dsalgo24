@@ -17,6 +17,8 @@
 
 from prettytable import PrettyTable
 
-mytable = PrettyTable()
+my_table = PrettyTable()
 
-print(mytable)
+my_table.add_column('Name', ['a', 'b', 'c', 'l'])
+my_table.add_column('Type', ['cute','adorable','sweet','funny'])
+print(my_table)
