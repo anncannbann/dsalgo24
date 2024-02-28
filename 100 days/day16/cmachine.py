@@ -18,6 +18,12 @@ while is_on:
     elif choice == 'off':
         is_on = False
     else:
-        x = menu.find_drink(choice)
+        drink = menu.find_drink(choice)
+        print(drink)
+        if drink:
+            if coffee_maker.is_resource_sufficient(choice):
+                if money_machine.make_payment(drink.cost):
+                    coffee_maker.make_coffee(drink)
 
-keyword
+
+
