@@ -1,0 +1,10 @@
+Why Postgres?
+
+for MySQL folks. Maybe Mariah will be the answer.
+ But Oracle, I mean Postgres, has become kind of like this interesting alternative because it's ruggedly,
+ solidly open source. And you may or may not have heard that Amazon, when it first started in the late nineties,
+  chose Oracle.
+  Why? Because it's what you did if you wanted a fast database and you didn't want to become a database company,
+  which is not what Amazon wanted to become. And so they built a lot of stuff around the Oracle database.
+  Well, the problem is that that cost them a lot of money and as Amazon got bigger and bigger and bigger their Oracle
+   bill got bigger and bigger and bigger. And that made Larry Ellison, the founder of Oracle, very, very rich.
