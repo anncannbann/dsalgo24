@@ -12,7 +12,7 @@ for i in range(0, 4):
     timmy.left(90)
 '''
 
-for i in range(0,50):
+for i in range(0,15):
     timmy.forward(5)
     timmy.penup()
     timmy.forward(5)
