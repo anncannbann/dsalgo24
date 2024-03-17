@@ -1,8 +1,17 @@
 from turtle import Turtle, Screen
 import random
 
-t = Turtle()
 s = Screen()
+
+snake =[]
+
+x = [0,20,40]
+
+for i in range(0,3):
+    t = Turtle(shape='square')
+    t.goto(x[i],0)
+    t.color('white')
+
 
 
 
