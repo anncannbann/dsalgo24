@@ -27,17 +27,15 @@ for t in range(0, 6):
 # opens a window to place your bet
 bet = s.textinput(title="Make your Bet", prompt="Enter the color you think will win!!!:")
 
-
 # race begins here
 if bet:
     race_on = True
-
 
 while race_on:
 
     for turtle in all_turtles:
 
-        if turtle.xcor()> 230:
+        if turtle.xcor() > 230:
             race_on = False
             winning_color = turtle.pencolor()
             if winning_color == bet:
@@ -45,11 +43,7 @@ while race_on:
             else:
                 print(f"You Lost ! {winning_color} is the winner")
 
-        dist = random.randint(1,10)
+        dist = random.randint(1, 10)
         turtle.forward(dist)
-
-
-
-
 
 s.exitonclick()
