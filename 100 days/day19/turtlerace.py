@@ -39,8 +39,12 @@ while race_on:
             race_on = False
             winning_color = turtle.pencolor()
             if winning_color == bet:
+                turtle.home()
+                turtle.write(f"You won ! {winning_color} is the winner", font=("Verdana", 15, "normal"))
                 print(f"You won ! {winning_color} is the winner")
             else:
+                turtle.home()
+                turtle.write(f"You Lost ! {winning_color} is the winner", font=("Verdana", 15, "normal"))
                 print(f"You Lost ! {winning_color} is the winner")
 
         dist = random.randint(1, 10)
