@@ -1,6 +1,7 @@
 from turtle import Turtle, Screen
 import random
 
+
 t = Turtle()
 s = Screen()
 s.colormode(255)
