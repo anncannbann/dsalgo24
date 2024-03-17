@@ -4,7 +4,7 @@ import random
 t = Turtle()
 s = Screen()
 s.colormode(255)
-t.pensize(5)
+#t.pensize(5)
 t.shape("turtle")
 t.color('black')
 t.fillcolor('BlueViolet')
@@ -22,6 +22,14 @@ def colors_on():
 
 
 def spiral():
-    t.color(colors_on())
+    x = 0
 
+    while x<100:
+        t.color(colors_on())
+        t.circle(100)
+        t.right(5)
+        x += 1
 
+spiral()
+
+s.exitonclick()
