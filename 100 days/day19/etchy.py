@@ -20,14 +20,23 @@ def move_back():
 
 
 def cls_screen():
-    t.clear()
     t.home()
+    t.clear()
+
+
+
+def counter_clockwise():
+    t.left(10)
+
+
+def clockwise():
+    t.right(10)
 
 
 s.listen()
 s.onkey(key="w", fun=move_forwards)
-s.onkey(key="a", fun=move_forwards)
+s.onkey(key="a", fun=counter_clockwise)
 s.onkey(key="s", fun=move_back)
-s.onkey(key="d", fun=move_forwards)
+s.onkey(key="d", fun=clockwise)
 s.onkey(key="c", fun=cls_screen)
 s.exitonclick()
