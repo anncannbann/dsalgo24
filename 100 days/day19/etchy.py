@@ -26,11 +26,13 @@ def cls_screen():
 
 
 def counter_clockwise():
-    t.left(10)
+    new_heading = t.heading()+10
+    t.setheading(new_heading)
 
 
 def clockwise():
-    t.right(10)
+    new_heading = t.heading() - 10
+    t.setheading(new_heading)
 
 
 s.listen()
